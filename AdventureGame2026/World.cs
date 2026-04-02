@@ -29,9 +29,16 @@ namespace AdventureGame2026
         //Console.WriteLine(title);
         public void SetUpWorld()
         {
-            WorldName = "Planet E`ho)ne";
-            Description = "A super fun place to explore.";
-            Console.Title = WorldName;
+
+            string output = $"Welcome to {WorldName}!\n{Description}\nThese are the available locations:\n";
+            int choiceNum = 1;
+            foreach (Location location in Locations)
+            {
+                output += $"    {choiceNum}. {location.LocationName}.\n";
+                choiceNum++;
+            }
+            return output;
+
 
             Player = new Person("Alex", "Adventurer");
             NPCMerchant = new Person("Zara", "Merchant");
